@@ -3,6 +3,8 @@ plugins {
 }
 
 repositories {
+	maven {url 'https://maven.aliyun.com/repository/central'} //阿里云Maven central
+	maven {url 'https://maven.aliyun.com/repository/public'} //阿里云Maven jcenter
 	mavenCentral()
 	gradlePluginPortal()
 }
