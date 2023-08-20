@@ -33,6 +33,10 @@ import javax.servlet.ServletContextListener;
  * @since 17.02.2003
  * @see #setContextInitializers
  * @see org.springframework.web.WebApplicationInitializer
+ *
+ * Servle 容器声明周期的监听器实现
+ *
+ * 通过这个监听器完成SpringWeb 上下文的初始化
  */
 public class ContextLoaderListener extends ContextLoader implements ServletContextListener {
 
@@ -97,15 +101,20 @@ public class ContextLoaderListener extends ContextLoader implements ServletConte
 
 	/**
 	 * Initialize the root web application context.
+	 *
+	 * 初始化回调
 	 */
 	@Override
 	public void contextInitialized(ServletContextEvent event) {
+		// XML -> org.apache.catalina.core.ApplicationContextFacade
 		initWebApplicationContext(event.getServletContext());
 	}
 
 
 	/**
 	 * Close the root web application context.
+	 *
+	 * 销毁回调
 	 */
 	@Override
 	public void contextDestroyed(ServletContextEvent event) {

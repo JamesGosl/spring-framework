@@ -48,6 +48,8 @@ import org.springframework.web.servlet.handler.AbstractHandlerMapping;
  *
  * @author Arjen Poutsma
  * @since 5.2
+ *
+ * RouterFunction Mapping
  */
 public class RouterFunctionMapping extends AbstractHandlerMapping implements InitializingBean {
 

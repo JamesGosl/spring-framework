@@ -36,6 +36,8 @@ import org.springframework.web.servlet.ModelAndView;
  * @see Controller
  * @see LastModified
  * @see HttpRequestHandlerAdapter
+ *
+ * SimpleControllerHandler Adapter
  */
 public class SimpleControllerHandlerAdapter implements HandlerAdapter {
 

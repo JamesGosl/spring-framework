@@ -58,6 +58,8 @@ import org.springframework.web.context.request.async.DeferredResult.DeferredResu
  * @see org.springframework.web.servlet.AsyncHandlerInterceptor
  * @see org.springframework.web.filter.OncePerRequestFilter#shouldNotFilterAsyncDispatch
  * @see org.springframework.web.filter.OncePerRequestFilter#isAsyncDispatch
+ *
+ * Web AsyncManager
  */
 public final class WebAsyncManager {
 

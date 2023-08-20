@@ -40,6 +40,8 @@ import org.springframework.web.util.WebUtils;
  * @author Juergen Hoeller
  * @since 28.08.2003
  * @see SpringBeanAutowiringSupport
+ *
+ * WebApplication ObjectSupport
  */
 public abstract class WebApplicationObjectSupport extends ApplicationObjectSupport implements ServletContextAware {
 
@@ -51,6 +53,7 @@ public abstract class WebApplicationObjectSupport extends ApplicationObjectSuppo
 	public final void setServletContext(ServletContext servletContext) {
 		if (servletContext != this.servletContext) {
 			this.servletContext = servletContext;
+			// 模板方法
 			initServletContext(servletContext);
 		}
 	}
@@ -75,7 +78,9 @@ public abstract class WebApplicationObjectSupport extends ApplicationObjectSuppo
 	 */
 	@Override
 	protected void initApplicationContext(ApplicationContext context) {
+		// AbstractHandlerMapping 初始化HandlerInterceptor
 		super.initApplicationContext(context);
+
 		if (this.servletContext == null && context instanceof WebApplicationContext) {
 			this.servletContext = ((WebApplicationContext) context).getServletContext();
 			if (this.servletContext != null) {

@@ -69,6 +69,8 @@ import org.springframework.web.util.UrlPathHelper;
  * @see org.springframework.util.AntPathMatcher
  * @see #setInterceptors
  * @see org.springframework.web.servlet.HandlerInterceptor
+ *
+ * Abstract HandlerMapping
  */
 public abstract class AbstractHandlerMapping extends WebApplicationObjectSupport
 		implements HandlerMapping, Ordered, BeanNameAware {
@@ -283,8 +285,13 @@ public abstract class AbstractHandlerMapping extends WebApplicationObjectSupport
 	 */
 	@Override
 	protected void initApplicationContext() throws BeansException {
+		// 扩展方法 加入
 		extendInterceptors(this.interceptors);
+
+		// BeanFactory 中查找MappedInterceptor 的类型
 		detectMappedInterceptors(this.adaptedInterceptors);
+
+		// 将interceptors 中的拦截器进行包装放入adaptedInterceptors
 		initInterceptors();
 	}
 

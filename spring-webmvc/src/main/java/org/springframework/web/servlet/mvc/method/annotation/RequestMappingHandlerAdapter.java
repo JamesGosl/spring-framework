@@ -111,6 +111,8 @@ import org.springframework.web.util.WebUtils;
  * @since 3.1
  * @see HandlerMethodArgumentResolver
  * @see HandlerMethodReturnValueHandler
+ *
+ * RequestMapping HandlerAdapter
  */
 public class RequestMappingHandlerAdapter extends AbstractHandlerMethodAdapter
 		implements BeanFactoryAware, InitializingBean {

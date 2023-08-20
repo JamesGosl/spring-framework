@@ -37,6 +37,8 @@ package org.springframework.core.env;
  * @see Environment
  * @see ConfigurableEnvironment
  * @see org.springframework.context.ConfigurableApplicationContext#getEnvironment()
+ *
+ * Environment 提供器
  */
 public interface EnvironmentCapable {
 

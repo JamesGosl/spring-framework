@@ -81,6 +81,10 @@ import javax.servlet.http.HttpServletRequest;
  * @see org.springframework.web.multipart.support.ByteArrayMultipartFileEditor
  * @see org.springframework.web.multipart.support.StringMultipartFileEditor
  * @see org.springframework.web.servlet.DispatcherServlet
+ *
+ * Multipart Resolver
+ *
+ * 文件上传解析器
  */
 public interface MultipartResolver {
 

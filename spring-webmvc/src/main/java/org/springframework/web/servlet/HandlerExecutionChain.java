@@ -36,6 +36,10 @@ import org.springframework.util.ObjectUtils;
  * @author Juergen Hoeller
  * @since 20.06.2003
  * @see HandlerInterceptor
+ *
+ * Handler ExecutionChain
+ *
+ * Hanlder 执行链
  */
 public class HandlerExecutionChain {
 

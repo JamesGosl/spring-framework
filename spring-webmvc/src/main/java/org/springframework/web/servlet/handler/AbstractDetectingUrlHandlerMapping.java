@@ -30,6 +30,8 @@ import org.springframework.util.ObjectUtils;
  * @author Juergen Hoeller
  * @since 2.5
  * @see #determineUrlsForHandler
+ *
+ * Abstract Detecting UrlHandlerMapping
  */
 public abstract class AbstractDetectingUrlHandlerMapping extends AbstractUrlHandlerMapping {
 
@@ -55,7 +57,9 @@ public abstract class AbstractDetectingUrlHandlerMapping extends AbstractUrlHand
 	 */
 	@Override
 	public void initApplicationContext() throws ApplicationContextException {
+		// AbstractHandlerMapping 初始化HandlerInterceptor
 		super.initApplicationContext();
+		// 检查
 		detectHandlers();
 	}
 
@@ -68,6 +72,7 @@ public abstract class AbstractDetectingUrlHandlerMapping extends AbstractUrlHand
 	 * @see #determineUrlsForHandler(String)
 	 */
 	protected void detectHandlers() throws BeansException {
+		// 通过BeanFactory 查找所有beanNames
 		ApplicationContext applicationContext = obtainApplicationContext();
 		String[] beanNames = (this.detectHandlersInAncestorContexts ?
 				BeanFactoryUtils.beanNamesForTypeIncludingAncestors(applicationContext, Object.class) :
@@ -75,7 +80,9 @@ public abstract class AbstractDetectingUrlHandlerMapping extends AbstractUrlHand
 
 		// Take any bean name that we can determine URLs for.
 		for (String beanName : beanNames) {
+			// beanName and aliasName
 			String[] urls = determineUrlsForHandler(beanName);
+			// 这里将urls 和beanName 注册到映射集合中，后面由HanlderAdapter 来做适配完成调用
 			if (!ObjectUtils.isEmpty(urls)) {
 				// URL paths found: Let's consider it a handler.
 				registerHandler(urls, beanName);

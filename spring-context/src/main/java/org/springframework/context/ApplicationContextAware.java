@@ -55,6 +55,8 @@ import org.springframework.beans.factory.Aware;
  * @see MessageSourceAware
  * @see org.springframework.context.support.ApplicationObjectSupport
  * @see org.springframework.beans.factory.BeanFactoryAware
+ *
+ * ApplicationContext Aware
  */
 public interface ApplicationContextAware extends Aware {
 

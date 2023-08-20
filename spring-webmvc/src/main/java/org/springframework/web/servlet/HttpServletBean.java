@@ -78,6 +78,8 @@ import org.springframework.web.context.support.StandardServletEnvironment;
  * @see #initServletBean
  * @see #doGet
  * @see #doPost
+ *
+ * HttpServlet 的抽象扩展，为其子类提供所需的资源如Environment
  */
 @SuppressWarnings("serial")
 public abstract class HttpServletBean extends HttpServlet implements EnvironmentCapable, EnvironmentAware {
@@ -144,6 +146,8 @@ public abstract class HttpServletBean extends HttpServlet implements Environment
 	 * invoke subclass initialization.
 	 * @throws ServletException if bean properties are invalid (or required
 	 * properties are missing), or if subclass initialization fails.
+	 *
+	 * 实现一个Servlet 接口就会有生命周期的一些回调方法
 	 */
 	@Override
 	public final void init() throws ServletException {
@@ -167,6 +171,7 @@ public abstract class HttpServletBean extends HttpServlet implements Environment
 		}
 
 		// Let subclasses do whatever initialization they like.
+		// 交给子类完成
 		initServletBean();
 	}
 

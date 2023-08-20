@@ -38,6 +38,12 @@ package org.springframework.context;
  * @see org.springframework.web.context.ContextLoader#CONTEXT_INITIALIZER_CLASSES_PARAM
  * @see org.springframework.web.servlet.FrameworkServlet#setContextInitializerClasses
  * @see org.springframework.web.servlet.FrameworkServlet#applyInitializers
+ *
+ * Spring 应用上下文 初始化回调接口
+ *
+ * 通过Custom 形式
+ * 通过ContextLoaderListener 形式
+ * 通过DispatcherServlet 形式
  */
 public interface ApplicationContextInitializer<C extends ConfigurableApplicationContext> {
 

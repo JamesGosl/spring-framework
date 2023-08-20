@@ -37,6 +37,8 @@ import org.springframework.web.servlet.function.ServerResponse;
  *
  * @author Arjen Poutsma
  * @since 5.2
+ *
+ * HandlerFunction Adapter
  */
 public class HandlerFunctionAdapter implements HandlerAdapter, Ordered {
 

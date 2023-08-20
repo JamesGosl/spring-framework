@@ -38,6 +38,10 @@ import org.springframework.web.WebApplicationInitializer;
  * @author Chris Beams
  * @author Juergen Hoeller
  * @since 3.2
+ *
+ * SpringWeb Servlet 容器初始化实现
+ *
+ * 用于注册ServletContextListener 监听器，通过这个监听器完成对SpringWeb 上下文的初始化
  */
 public abstract class AbstractContextLoaderInitializer implements WebApplicationInitializer {
 
@@ -58,6 +62,9 @@ public abstract class AbstractContextLoaderInitializer implements WebApplication
 	 */
 	protected void registerContextLoaderListener(ServletContext servletContext) {
 		WebApplicationContext rootAppContext = createRootApplicationContext();
+
+		// 如果存在的话，那么就是嵌入式Servlet 容器
+		// 否则就是通过普通的XML 文件来进行注册
 		if (rootAppContext != null) {
 			ContextLoaderListener listener = new ContextLoaderListener(rootAppContext);
 			listener.setContextInitializers(getRootApplicationContextInitializers());

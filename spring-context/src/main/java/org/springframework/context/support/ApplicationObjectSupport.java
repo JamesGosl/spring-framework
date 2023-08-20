@@ -45,6 +45,8 @@ import org.springframework.util.Assert;
  * @author Rod Johnson
  * @author Juergen Hoeller
  * @see org.springframework.web.context.support.WebApplicationObjectSupport
+ *
+ * Application ObjectSupport
  */
 public abstract class ApplicationObjectSupport implements ApplicationContextAware {
 
@@ -60,6 +62,7 @@ public abstract class ApplicationObjectSupport implements ApplicationContextAwar
 	private MessageSourceAccessor messageSourceAccessor;
 
 
+	// ApplicationContextAware 的回调
 	@Override
 	public final void setApplicationContext(@Nullable ApplicationContext context) throws BeansException {
 		if (context == null && !isContextRequired()) {
@@ -75,6 +78,7 @@ public abstract class ApplicationObjectSupport implements ApplicationContextAwar
 			}
 			this.applicationContext = context;
 			this.messageSourceAccessor = new MessageSourceAccessor(context);
+			// 模板方法
 			initApplicationContext(context);
 		}
 		else {
@@ -121,6 +125,7 @@ public abstract class ApplicationObjectSupport implements ApplicationContextAwar
 	 * @see #setApplicationContext
 	 */
 	protected void initApplicationContext(ApplicationContext context) throws BeansException {
+		// 模板方法
 		initApplicationContext();
 	}
 

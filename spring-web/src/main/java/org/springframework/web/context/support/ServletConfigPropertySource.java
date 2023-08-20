@@ -29,6 +29,8 @@ import org.springframework.util.StringUtils;
  * @author Chris Beams
  * @since 3.1
  * @see ServletContextPropertySource
+ *
+ * Servlet ConfigPropertySource
  */
 public class ServletConfigPropertySource extends EnumerablePropertySource<ServletConfig> {
 

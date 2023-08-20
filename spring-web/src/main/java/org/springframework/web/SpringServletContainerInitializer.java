@@ -108,6 +108,13 @@ import org.springframework.util.ReflectionUtils;
  * @since 3.1
  * @see #onStartup(Set, ServletContext)
  * @see WebApplicationInitializer
+ *
+ * 这个是由Servlet SPI 来负责加载的（META-INF/services/javax.servlet.ServletContainerInitializer）
+ *
+ * 可以通过HandlesTypes 注解来完成所需类的获取，因为Servlet 容器需要加载项目的所有类，所以实现这个功能并不复杂
+ * Tomcat 中通过org.apache.catalina.util.LifecycleBase 来完成这个回调功能
+ *
+ * SpringServletContainerInitializer 主要是通过WebApplicationInitializer 接口定制ServletContainerInitializer 的初始化操作
  */
 @HandlesTypes(WebApplicationInitializer.class)
 public class SpringServletContainerInitializer implements ServletContainerInitializer {

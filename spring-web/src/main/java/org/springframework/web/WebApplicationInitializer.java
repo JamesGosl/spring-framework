@@ -173,6 +173,8 @@ import javax.servlet.ServletException;
  * @see org.springframework.web.context.AbstractContextLoaderInitializer
  * @see org.springframework.web.servlet.support.AbstractDispatcherServletInitializer
  * @see org.springframework.web.servlet.support.AbstractAnnotationConfigDispatcherServletInitializer
+ *
+ * SpringWeb 上下文的初始化回调接口
  */
 public interface WebApplicationInitializer {
 

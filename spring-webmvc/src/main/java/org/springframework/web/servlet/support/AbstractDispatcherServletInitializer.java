@@ -49,6 +49,8 @@ import org.springframework.web.servlet.FrameworkServlet;
  * @author Juergen Hoeller
  * @author Stephane Nicoll
  * @since 3.2
+ *
+ * AbstractDispatcherServletInitializer
  */
 public abstract class AbstractDispatcherServletInitializer extends AbstractContextLoaderInitializer {
 

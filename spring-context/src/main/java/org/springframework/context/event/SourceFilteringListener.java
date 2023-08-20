@@ -33,6 +33,9 @@ import org.springframework.lang.Nullable;
  * @author Juergen Hoeller
  * @author Stephane Nicoll
  * @since 2.0.5
+ *
+ * Source Filtering Listener
+ * 监听事件是否属于Source 是的话进行转发，起到一个过滤的作用
  */
 public class SourceFilteringListener implements GenericApplicationListener, SmartApplicationListener {
 
@@ -69,6 +72,7 @@ public class SourceFilteringListener implements GenericApplicationListener, Smar
 
 	@Override
 	public void onApplicationEvent(ApplicationEvent event) {
+		// 如果支持此事件那么转发
 		if (event.getSource() == this.source) {
 			onApplicationEventInternal(event);
 		}
